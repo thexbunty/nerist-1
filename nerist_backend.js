@@ -228,7 +228,7 @@ class NERISTBackend {
                 name: 'Cafeteria',
                 description: 'Near Hostel Block | 0.3 km away',
                 type: 'food',
-                coords: [27.1039, 93.7262],
+                coords: [27.1039, 93.7268],
                 icon: 'utensils'
             },
             {
@@ -2117,4 +2117,5 @@ document.addEventListener('DOMContentLoaded', () => {
 // Export for use in other scripts
 if (typeof module !== 'undefined' && module.exports) {
     module.exports = NERISTBackend;
+
 }
