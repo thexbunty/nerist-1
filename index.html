@@ -1379,12 +1379,18 @@
       position: relative;
     }
 
-    .container {
-      width: 100%;
-      max-width: 1400px;
-      margin: 0 auto;
-      padding: 0 20px;
-    }
+   .container {
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 0 15px !important; /* Reduced padding for mobile */
+  }
+}
 
     /* ===== RESPONSIVE DESIGN HELPER CLASSES ===== */
     .desktop-only {
@@ -1561,8 +1567,22 @@
       align-items: center;
       gap: 15px;
       cursor: pointer;
-      margin-left: -15px;
     }
+
+@media (max-width: 768px) {
+  .nav-logo {
+    margin-left: 10px; /* Adjusted for mobile */
+    gap: 12px; /* Reduced gap for mobile */
+  }
+  
+  .nav-logo h1 {
+    font-size: 1.2rem; /* Smaller font for mobile */
+  }
+  
+  .nav-logo-icon {
+    font-size: 1.3rem; /* Smaller icon for mobile */
+  }
+}
 
     .nav-logo h1 {
       font-size: clamp(1.3rem, 4vw, 1.8rem);
@@ -1679,13 +1699,24 @@
     }
 
     /* ===== SECTIONS ===== */
-    section {
-      padding: clamp(60px, 10vw, 120px) 0;
-      display: none;
-      opacity: 0;
-      transform: translateY(30px);
-      animation: sectionFadeIn 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
-    }
+  section {
+  padding: clamp(60px, 10vw, 120px) 0;
+  display: none;
+  opacity: 0;
+  transform: translateY(30px);
+  animation: sectionFadeIn 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+@media (max-width: 768px) {
+ section {
+    padding: 20px 0 30px 0; /* REDUCED from clamp(40px, 8vw, 100px) */
+  }
+  
+  #home {
+    padding-top: 40px; /* REDUCED from clamp(80px, 12vw, 140px) */
+    padding-bottom: 30px; /* REDUCED from clamp(60px, 8vw, 100px) */
+  }
+}
 
     section.active {
       display: block;
@@ -1748,13 +1779,18 @@
       flex-wrap: wrap;
     }
 
-    .dashboard-cards {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(min(380px, 100%), 1fr));
-      gap: clamp(25px, 4vw, 35px);
-      margin: clamp(40px, 8vw, 70px) 0;
-      animation: fadeInUp 0.8s ease 0.7s both;
-    }
+   .dashboard-cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(25px, 4vw, 35px);
+  margin: clamp(40px, 8vw, 70px) 0;
+  animation: fadeInUp 0.8s ease 0.7s both;
+}
+
+/* For the Campus Alerts and Vision Mission to take full width */
+.dashboard-cards .card:nth-child(n+3) {
+  grid-column: span 2;
+}
 
     .card {
       background: linear-gradient(145deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.02));
@@ -4085,23 +4121,147 @@
       }
     }
 
-    @media (max-width: 768px) {
-      .hero-title {
-        font-size: clamp(1.8rem, 5vw, 2.8rem);
-      }
 
-      .hero-subtitle {
-        font-size: clamp(1rem, 3vw, 1.2rem);
-      }
+/* ===== FIX FOR SEMESTER BUTTONS ON MOBILE ===== */
+@media (max-width: 768px) {
+  .semester-selector {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+    margin-bottom: 25px;
+    justify-content: center;
+  }
 
-      section {
-        padding: clamp(40px, 8vw, 100px) 0;
-      }
+  .semester-btn {
+    width: 100%;
+    padding: 14px 12px;
+    font-size: 0.9rem;
+    justify-content: center;
+    text-align: center;
+    min-height: 52px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
 
-      #home {
-        padding-top: clamp(80px, 12vw, 140px);
-        padding-bottom: clamp(60px, 8vw, 100px);
-      }
+  .semester-btn i {
+    font-size: 0.9rem;
+    margin-right: 6px;
+  }
+}
+
+@media (max-width: 480px) {
+  .semester-selector {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+
+  .semester-btn {
+    padding: 12px 8px;
+    font-size: 0.85rem;
+    min-height: 48px;
+  }
+
+  .semester-btn i {
+    font-size: 0.85rem;
+    margin-right: 5px;
+  }
+}
+
+@media (max-width: 375px) {
+  .semester-selector {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8px;
+  }
+
+  .semester-btn {
+    padding: 10px 6px;
+    font-size: 0.8rem;
+    min-height: 46px;
+  }
+
+  .semester-btn i {
+    display: none; /* Hide icon on very small screens */
+  }
+}
+
+/* Ensure proper spacing between results section elements on mobile */
+@media (max-width: 768px) {
+  .results-container {
+    gap: 20px;
+  }
+
+  .gpa-display {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+
+  .gpa-card {
+    padding: 25px 20px;
+  }
+
+  .gpa-value {
+    font-size: 2.2rem;
+  }
+
+  .results-table-container {
+    margin-top: 25px;
+  }
+
+  .progress-chart-container {
+    margin-top: 30px;
+  }
+}
+
+   @media (max-width: 768px) {
+  /* Fix navbar spacing */
+  nav {
+    padding: 15px 20px; /* Reduced padding for mobile */
+  }
+  
+  /* Fix hero title visibility */
+  .hero-title {
+    font-size: clamp(1.8rem, 5vw, 2.8rem);
+    margin-top: 20px; /* Added space */
+    padding: 0 10px; /* Add side padding */
+  }
+  
+  .hero-subtitle {
+    font-size: clamp(1rem, 3vw, 1.2rem);
+    padding: 0 10px; /* Add side padding */
+  }
+  
+  /* Fix section headings */
+  .section-title {
+    font-size: clamp(1.6rem, 5vw, 2rem);
+    padding-top: 20px !important;
+    margin-top: 10px !important;
+    display: block;
+    width: 100%;
+    text-align: center;
+  }
+  
+  .section-subtitle {
+    padding: 0 15px; /* Add side padding */
+    text-align: center;
+  }
+  
+  /* Adjust all sections */
+  section {
+    padding: 80px 15px 40px 15px !important; /* Added side padding */
+  }
+  
+  /* Fix home section specifically */
+  #home {
+    padding-top: 100px !important;
+    padding-bottom: 60px !important;
+  }
+  
+  /* Fix the navigation menu */
+  .nav-menu {
+    top: 80px; /* Adjusted for smaller navbar */
+  }
+}
 
       .dashboard-cards {
         grid-template-columns: 1fr;
@@ -4165,7 +4325,7 @@
       .login-container {
         padding: 30px 25px;
       }
-    }
+
 
     @media (max-width: 576px) {
       .hero-title {
@@ -4752,10 +4912,68 @@
       margin-bottom: 20px;
       opacity: 0.5;
     }
+
+/* ===== MOBILE FIXES ===== */
+@media (max-width: 768px) {
+  /* Ensure content doesn't hide under navbar */
+  body {
+    padding-top: 0;
+  }
+  
+  /* Fix section visibility */
+  section.active {
+    padding-top: 90px !important; /* Extra space for fixed navbar */
+  }
+  
+  /* Fix all section titles */
+  h2.section-title {
+    margin-top: 10px !important;
+    padding-top: 10px !important;
+    font-size: 1.8rem !important;
+    line-height: 1.3;
+  }
+  
+  /* Fix home page cards */
+  .dashboard-cards {
+    margin-top: 30px;
+  }
+  
+  /* Fix navbar items spacing */
+  .nav-logo {
+    flex: 1;
+    min-width: 0;
+  }
+  
+  .nav-actions {
+    flex: 0;
+  }
+  
+  /* Make sure text doesn't overflow */
+  .hero-title,
+  .section-title,
+  .card-title {
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    hyphens: auto;
+  }
+}
+
+/* Responsive adjustment for side-by-side layout */
+@media (max-width: 992px) {
+  .dashboard-cards {
+    grid-template-columns: 1fr;
+  }
+  
+  .dashboard-cards .card:nth-child(n+3) {
+    grid-column: span 1;
+  }
+}
+
   </style>
 </head>
 
 <body>
+  
   <!-- Premium Login Page -->
   <!-- Premium Login Page - Instagram Style -->
   <div class="login-page" id="loginPage">
@@ -12531,6 +12749,4 @@ ${application.status === 'pending' ? `
   </script>
 </body>
 
-
 </html>
-
