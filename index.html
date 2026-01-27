@@ -1779,12 +1779,17 @@
       flex-wrap: wrap;
     }
 
-   .dashboard-cards {
+  .dashboard-cards {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: repeat(auto-fit, minmax(min(380px, 100%), 1fr));
   gap: clamp(25px, 4vw, 35px);
   margin: clamp(40px, 8vw, 70px) 0;
   animation: fadeInUp 0.8s ease 0.7s both;
+}
+
+/* Add extra space between the first card (Schedule) and second card (Weather) */
+.dashboard-cards .card:nth-child(1) {
+  margin-bottom: 50px;
 }
 
 /* For the Campus Alerts and Vision Mission to take full width */
