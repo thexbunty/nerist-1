@@ -7155,7 +7155,7 @@
     let lastWeatherUpdate = null;
     let weatherCacheKey = 'neristWeatherCache';
     let weatherRefreshInterval = 300000; // 5 minutes
-    const NERIST_COORDS = { lat: 27.1265, lng: 93.7145 }; // NERIST coordinates
+    const NERIST_COORDS = { lat: 27.1297346, lng: 93.7429324 }; // NERIST coordinates
 
     // ===== MAP VARIABLES =====
     let neristMap = null;
@@ -7318,7 +7318,7 @@
       }
 
       // Initialize locations
-      // Change from Sikkim coordinates [27.1265,93.7145] to NERIST (Nirjuli) coordinates
+      // Change from Sikkim coordinates [27.1297346,93.7429324] to NERIST (Nirjuli) coordinates
       locations = [
         { name: 'Computer Science Department', desc: 'CSE Building, 2nd Floor | 0.4 km away', type: 'academic', coords: [27.1050, 93.7270] }, // NERIST coordinates
         { name: 'Central Library', desc: 'Main Building, Ground Floor | 0.7 km away', type: 'facility', coords: [27.1042, 93.7281] },
@@ -12213,7 +12213,7 @@ ${application.status === 'pending' ? `
       }
 
       // Initialize map with NERIST coordinates
-      neristMap = L.map('neristMap').setView([27.1265, 93.7145], 17); // NERIST coordinates
+      neristMap = L.map('neristMap').setView([27.1297346, 93.7429324], 17); // NERIST coordinates
 
       // Add OpenStreetMap tile layer
       // Define base layers with proper configuration
@@ -12504,13 +12504,13 @@ ${application.status === 'pending' ? `
             showNotification('Could not get your location. Using NERIST coordinates.', 'warning');
 
             // Fallback to NERIST center
-            neristMap.setView([27.0675, 88.4965], 17);
+            neristMap.setView([27.1297346, 93.7429324], 17);
             hideMapOverlay();
           }
         );
       } else {
         showNotification('Geolocation not supported by your browser', 'warning');
-        neristMap.setView([27.0675, 88.4965], 17);
+        neristMap.setView([27.1297346, 93.7429324], 17);
         hideMapOverlay();
       }
     }
