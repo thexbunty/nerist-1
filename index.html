@@ -1379,18 +1379,19 @@
       position: relative;
     }
 
-   .container {
-  width: 100%;
-  max-width: 1400px;
-  margin: 0 auto;
-  padding: 0 20px;
-}
+    .container {
+      width: 100%;
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
 
-@media (max-width: 768px) {
-  .container {
-    padding: 0 15px !important; /* Reduced padding for mobile */
-  }
-}
+    @media (max-width: 768px) {
+      .container {
+        padding: 0 15px !important;
+        /* Reduced padding for mobile */
+      }
+    }
 
     /* ===== RESPONSIVE DESIGN HELPER CLASSES ===== */
     .desktop-only {
@@ -1569,20 +1570,24 @@
       cursor: pointer;
     }
 
-@media (max-width: 768px) {
-  .nav-logo {
-    margin-left: 10px; /* Adjusted for mobile */
-    gap: 12px; /* Reduced gap for mobile */
-  }
-  
-  .nav-logo h1 {
-    font-size: 1.2rem; /* Smaller font for mobile */
-  }
-  
-  .nav-logo-icon {
-    font-size: 1.3rem; /* Smaller icon for mobile */
-  }
-}
+    @media (max-width: 768px) {
+      .nav-logo {
+        margin-left: 10px;
+        /* Adjusted for mobile */
+        gap: 12px;
+        /* Reduced gap for mobile */
+      }
+
+      .nav-logo h1 {
+        font-size: 1.2rem;
+        /* Smaller font for mobile */
+      }
+
+      .nav-logo-icon {
+        font-size: 1.3rem;
+        /* Smaller icon for mobile */
+      }
+    }
 
     .nav-logo h1 {
       font-size: clamp(1.3rem, 4vw, 1.8rem);
@@ -1699,24 +1704,27 @@
     }
 
     /* ===== SECTIONS ===== */
-  section {
-  padding: clamp(60px, 10vw, 120px) 0;
-  display: none;
-  opacity: 0;
-  transform: translateY(30px);
-  animation: sectionFadeIn 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
-}
+    section {
+      padding: clamp(60px, 10vw, 120px) 0;
+      display: none;
+      opacity: 0;
+      transform: translateY(30px);
+      animation: sectionFadeIn 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+    }
 
-@media (max-width: 768px) {
- section {
-    padding: 20px 0 30px 0; /* REDUCED from clamp(40px, 8vw, 100px) */
-  }
-  
-  #home {
-    padding-top: 40px; /* REDUCED from clamp(80px, 12vw, 140px) */
-    padding-bottom: 30px; /* REDUCED from clamp(60px, 8vw, 100px) */
-  }
-}
+    @media (max-width: 768px) {
+      section {
+        padding: 20px 0 30px 0;
+        /* REDUCED from clamp(40px, 8vw, 100px) */
+      }
+
+      #home {
+        padding-top: 40px;
+        /* REDUCED from clamp(80px, 12vw, 140px) */
+        padding-bottom: 30px;
+        /* REDUCED from clamp(60px, 8vw, 100px) */
+      }
+    }
 
     section.active {
       display: block;
@@ -1779,23 +1787,23 @@
       flex-wrap: wrap;
     }
 
-  .dashboard-cards {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(min(380px, 100%), 1fr));
-  gap: clamp(25px, 4vw, 35px);
-  margin: clamp(40px, 8vw, 70px) 0;
-  animation: fadeInUp 0.8s ease 0.7s both;
-}
+    .dashboard-cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(min(380px, 100%), 1fr));
+      gap: clamp(25px, 4vw, 35px);
+      margin: clamp(40px, 8vw, 70px) 0;
+      animation: fadeInUp 0.8s ease 0.7s both;
+    }
 
-/* Add extra space between the first card (Schedule) and second card (Weather) */
-.dashboard-cards .card:nth-child(1) {
-  margin-bottom: 50px;
-}
+    /* Add extra space between the first card (Schedule) and second card (Weather) */
+    .dashboard-cards .card:nth-child(1) {
+      margin-bottom: 50px;
+    }
 
-/* For the Campus Alerts and Vision Mission to take full width */
-.dashboard-cards .card:nth-child(n+3) {
-  grid-column: span 2;
-}
+    /* For the Campus Alerts and Vision Mission to take full width */
+    .dashboard-cards .card:nth-child(n+3) {
+      grid-column: span 2;
+    }
 
     .card {
       background: linear-gradient(145deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.02));
@@ -1808,6 +1816,19 @@
       overflow: hidden;
       width: 100%;
     }
+
+    .card {
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      margin-bottom: 12px;
+      /* Add this */
+    }
+
+    /* .card:hover {
+  transform: translateY(-12px) scale(1.02);
+  margin-bottom: 0;
+  z-index: 10;
+} */
+
 
     .card::before {
       content: '';
@@ -1825,9 +1846,9 @@
     }
 
     .card:hover {
-      transform: translateY(-12px) scale(1.02);
-      box-shadow: 0 30px 60px rgba(0, 0, 0, 0.2);
+      transform: translateY(-5px);
       border-color: var(--primary);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
     }
 
     .card-header {
@@ -1960,7 +1981,7 @@
     }
 
     .stat-item:hover {
-      transform: translateY(-8px);
+      transform: translateY(-5px);
       border-color: var(--primary);
       box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
     }
@@ -2073,7 +2094,7 @@
 
     .vision-card:hover,
     .mission-card:hover {
-      transform: translateY(-8px) scale(1.02);
+      transform: translateY(-5px);
       border-color: var(--primary);
       box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
     }
@@ -2198,7 +2219,7 @@
     }
 
     .gpa-card:hover {
-      transform: translateY(-8px);
+      transform: translateY(-5px);
       border-color: var(--primary);
       box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
     }
@@ -2506,7 +2527,7 @@
     }
 
     .stat-card:hover {
-      transform: translateY(-8px);
+      transform: translateY(-5px);
       border-color: var(--primary);
     }
 
@@ -3069,7 +3090,7 @@
     }
 
     .contact-card:hover {
-      transform: translateY(-10px);
+      transform: translateY(-5px);
       border-color: var(--primary);
       box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
     }
@@ -3172,7 +3193,7 @@
     }
 
     .meal-card:hover {
-      transform: translateY(-8px);
+      transform: translateY(-5px);
       border-color: var(--primary);
     }
 
@@ -3614,7 +3635,7 @@
 
     .location-item:hover {
       background: rgba(255, 255, 255, 0.08) !important;
-      transform: translateX(12px) !important;
+      transform: translateY(-5px) !important;
       box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1) !important;
       border-color: var(--primary) !important;
     }
@@ -3659,7 +3680,7 @@
     }
 
     .opportunity-card:hover {
-      transform: translateY(-10px);
+      transform: translateY(-5px);
       border-color: var(--primary);
       box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
     }
@@ -4127,209 +4148,218 @@
     }
 
 
-/* ===== FIX FOR SEMESTER BUTTONS ON MOBILE ===== */
-@media (max-width: 768px) {
-  .semester-selector {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 12px;
-    margin-bottom: 25px;
-    justify-content: center;
-  }
+    /* ===== FIX FOR SEMESTER BUTTONS ON MOBILE ===== */
+    @media (max-width: 768px) {
+      .semester-selector {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+        margin-bottom: 25px;
+        justify-content: center;
+      }
 
-  .semester-btn {
-    width: 100%;
-    padding: 14px 12px;
-    font-size: 0.9rem;
-    justify-content: center;
-    text-align: center;
-    min-height: 52px;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-  }
+      .semester-btn {
+        width: 100%;
+        padding: 14px 12px;
+        font-size: 0.9rem;
+        justify-content: center;
+        text-align: center;
+        min-height: 52px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
 
-  .semester-btn i {
-    font-size: 0.9rem;
-    margin-right: 6px;
-  }
-}
+      .semester-btn i {
+        font-size: 0.9rem;
+        margin-right: 6px;
+      }
+    }
 
-@media (max-width: 480px) {
-  .semester-selector {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 10px;
-  }
+    @media (max-width: 480px) {
+      .semester-selector {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+      }
 
-  .semester-btn {
-    padding: 12px 8px;
-    font-size: 0.85rem;
-    min-height: 48px;
-  }
+      .semester-btn {
+        padding: 12px 8px;
+        font-size: 0.85rem;
+        min-height: 48px;
+      }
 
-  .semester-btn i {
-    font-size: 0.85rem;
-    margin-right: 5px;
-  }
-}
+      .semester-btn i {
+        font-size: 0.85rem;
+        margin-right: 5px;
+      }
+    }
 
-@media (max-width: 375px) {
-  .semester-selector {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 8px;
-  }
+    @media (max-width: 375px) {
+      .semester-selector {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 8px;
+      }
 
-  .semester-btn {
-    padding: 10px 6px;
-    font-size: 0.8rem;
-    min-height: 46px;
-  }
+      .semester-btn {
+        padding: 10px 6px;
+        font-size: 0.8rem;
+        min-height: 46px;
+      }
 
-  .semester-btn i {
-    display: none; /* Hide icon on very small screens */
-  }
-}
+      .semester-btn i {
+        display: none;
+        /* Hide icon on very small screens */
+      }
+    }
 
-/* Ensure proper spacing between results section elements on mobile */
-@media (max-width: 768px) {
-  .results-container {
-    gap: 20px;
-  }
-
-  .gpa-display {
-    grid-template-columns: 1fr;
-    gap: 15px;
-  }
-
-  .gpa-card {
-    padding: 25px 20px;
-  }
-
-  .gpa-value {
-    font-size: 2.2rem;
-  }
-
-  .results-table-container {
-    margin-top: 25px;
-  }
-
-  .progress-chart-container {
-    margin-top: 30px;
-  }
-}
-
-   @media (max-width: 768px) {
-  /* Fix navbar spacing */
-  nav {
-    padding: 15px 20px; /* Reduced padding for mobile */
-  }
-  
-  /* Fix hero title visibility */
-  .hero-title {
-    font-size: clamp(1.8rem, 5vw, 2.8rem);
-    margin-top: 20px; /* Added space */
-    padding: 0 10px; /* Add side padding */
-  }
-  
-  .hero-subtitle {
-    font-size: clamp(1rem, 3vw, 1.2rem);
-    padding: 0 10px; /* Add side padding */
-  }
-  
-  /* Fix section headings */
-  .section-title {
-    font-size: clamp(1.6rem, 5vw, 2rem);
-    padding-top: 20px !important;
-    margin-top: 10px !important;
-    display: block;
-    width: 100%;
-    text-align: center;
-  }
-  
-  .section-subtitle {
-    padding: 0 15px; /* Add side padding */
-    text-align: center;
-  }
-  
-  /* Adjust all sections */
-  section {
-    padding: 80px 15px 40px 15px !important; /* Added side padding */
-  }
-  
-  /* Fix home section specifically */
-  #home {
-    padding-top: 100px !important;
-    padding-bottom: 60px !important;
-  }
-  
-  /* Fix the navigation menu */
-  .nav-menu {
-    top: 80px; /* Adjusted for smaller navbar */
-  }
-}
-
-      .dashboard-cards {
-        grid-template-columns: 1fr;
+    /* Ensure proper spacing between results section elements on mobile */
+    @media (max-width: 768px) {
+      .results-container {
         gap: 20px;
       }
 
-      .attendance-stats {
-        grid-template-columns: repeat(auto-fit, minmax(min(150px, 100%), 1fr));
-      }
-
-      .emergency-contacts {
-        grid-template-columns: repeat(auto-fit, minmax(min(200px, 100%), 1fr));
-      }
-
-      .stat-number {
-        font-size: clamp(1.8rem, 5vw, 2.5rem);
-      }
-
-      .sos-button {
-        width: clamp(120px, 35vw, 200px);
-        height: clamp(120px, 35vw, 200px);
-      }
-
-      .sos-icon {
-        font-size: clamp(2.5rem, 6vw, 4rem);
-      }
-
-      .sos-text {
-        font-size: clamp(1.3rem, 3vw, 1.8rem);
-      }
-
-      .map-container {
-        height: clamp(300px, 40vh, 450px);
-      }
-
-      .card {
-        padding: 25px;
-      }
-
-      .footer-links {
+      .gpa-display {
+        grid-template-columns: 1fr;
         gap: 15px;
       }
 
-      .modal-content {
-        padding: 25px;
+      .gpa-card {
+        padding: 25px 20px;
       }
 
-      .modal-title {
-        font-size: clamp(1.3rem, 4vw, 1.8rem);
+      .gpa-value {
+        font-size: 2.2rem;
       }
 
-      .about-text h2 {
-        font-size: clamp(1.6rem, 4vw, 2.2rem);
+      .results-table-container {
+        margin-top: 25px;
       }
 
-      .vision-card,
-      .mission-card {
-        padding: 25px;
+      .progress-chart-container {
+        margin-top: 30px;
+      }
+    }
+
+    @media (max-width: 768px) {
+
+      /* Fix navbar spacing */
+      nav {
+        padding: 15px 20px;
+        /* Reduced padding for mobile */
       }
 
-      .login-container {
-        padding: 30px 25px;
+      /* Fix hero title visibility */
+      .hero-title {
+        font-size: clamp(1.8rem, 5vw, 2.8rem);
+        margin-top: 20px;
+        /* Added space */
+        padding: 0 10px;
+        /* Add side padding */
       }
+
+      .hero-subtitle {
+        font-size: clamp(1rem, 3vw, 1.2rem);
+        padding: 0 10px;
+        /* Add side padding */
+      }
+
+      /* Fix section headings */
+      .section-title {
+        font-size: clamp(1.6rem, 5vw, 2rem);
+        padding-top: 20px !important;
+        margin-top: 10px !important;
+        display: block;
+        width: 100%;
+        text-align: center;
+      }
+
+      .section-subtitle {
+        padding: 0 15px;
+        /* Add side padding */
+        text-align: center;
+      }
+
+      /* Adjust all sections */
+      section {
+        padding: 80px 15px 40px 15px !important;
+        /* Added side padding */
+      }
+
+      /* Fix home section specifically */
+      #home {
+        padding-top: 100px !important;
+        padding-bottom: 60px !important;
+      }
+
+      /* Fix the navigation menu */
+      .nav-menu {
+        top: 80px;
+        /* Adjusted for smaller navbar */
+      }
+    }
+
+    .dashboard-cards {
+      grid-template-columns: 1fr;
+      gap: 20px;
+    }
+
+    .attendance-stats {
+      grid-template-columns: repeat(auto-fit, minmax(min(150px, 100%), 1fr));
+    }
+
+    .emergency-contacts {
+      grid-template-columns: repeat(auto-fit, minmax(min(200px, 100%), 1fr));
+    }
+
+    .stat-number {
+      font-size: clamp(1.8rem, 5vw, 2.5rem);
+    }
+
+    .sos-button {
+      width: clamp(120px, 35vw, 200px);
+      height: clamp(120px, 35vw, 200px);
+    }
+
+    .sos-icon {
+      font-size: clamp(2.5rem, 6vw, 4rem);
+    }
+
+    .sos-text {
+      font-size: clamp(1.3rem, 3vw, 1.8rem);
+    }
+
+    .map-container {
+      height: clamp(300px, 40vh, 450px);
+    }
+
+    .card {
+      padding: 25px;
+    }
+
+    .footer-links {
+      gap: 15px;
+    }
+
+    .modal-content {
+      padding: 25px;
+    }
+
+    .modal-title {
+      font-size: clamp(1.3rem, 4vw, 1.8rem);
+    }
+
+    .about-text h2 {
+      font-size: clamp(1.6rem, 4vw, 2.2rem);
+    }
+
+    .vision-card,
+    .mission-card {
+      padding: 25px;
+    }
+
+    .login-container {
+      padding: 30px 25px;
+    }
 
 
     @media (max-width: 576px) {
@@ -4918,67 +4948,84 @@
       opacity: 0.5;
     }
 
-/* ===== MOBILE FIXES ===== */
-@media (max-width: 768px) {
-  /* Ensure content doesn't hide under navbar */
-  body {
-    padding-top: 0;
-  }
-  
-  /* Fix section visibility */
-  section.active {
-    padding-top: 90px !important; /* Extra space for fixed navbar */
-  }
-  
-  /* Fix all section titles */
-  h2.section-title {
-    margin-top: 10px !important;
-    padding-top: 10px !important;
-    font-size: 1.8rem !important;
-    line-height: 1.3;
-  }
-  
-  /* Fix home page cards */
-  .dashboard-cards {
-    margin-top: 30px;
-  }
-  
-  /* Fix navbar items spacing */
-  .nav-logo {
-    flex: 1;
-    min-width: 0;
-  }
-  
-  .nav-actions {
-    flex: 0;
-  }
-  
-  /* Make sure text doesn't overflow */
-  .hero-title,
-  .section-title,
-  .card-title {
-    word-wrap: break-word;
-    overflow-wrap: break-word;
-    hyphens: auto;
-  }
-}
+    /* ===== MOBILE FIXES ===== */
+    @media (max-width: 768px) {
 
-/* Responsive adjustment for side-by-side layout */
-@media (max-width: 992px) {
-  .dashboard-cards {
-    grid-template-columns: 1fr;
-  }
-  
-  .dashboard-cards .card:nth-child(n+3) {
-    grid-column: span 1;
-  }
-}
+      /* Ensure content doesn't hide under navbar */
+      body {
+        padding-top: 0;
+      }
 
+      /* Fix section visibility */
+      section.active {
+        padding-top: 90px !important;
+        /* Extra space for fixed navbar */
+      }
+
+      /* Fix all section titles */
+      h2.section-title {
+        margin-top: 10px !important;
+        padding-top: 10px !important;
+        font-size: 1.8rem !important;
+        line-height: 1.3;
+      }
+
+      /* Fix home page cards */
+      .dashboard-cards {
+        margin-top: 30px;
+      }
+
+      /* Fix navbar items spacing */
+      .nav-logo {
+        flex: 1;
+        min-width: 0;
+      }
+
+      .nav-actions {
+        flex: 0;
+      }
+
+      /* Make sure text doesn't overflow */
+      .hero-title,
+      .section-title,
+      .card-title {
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+        hyphens: auto;
+      }
+    }
+
+    /* Responsive adjustment for side-by-side layout */
+    @media (max-width: 992px) {
+      .dashboard-cards {
+        grid-template-columns: 1fr;
+      }
+
+      .dashboard-cards .card:nth-child(n+3) {
+        grid-column: span 1;
+      }
+    }
+
+    /* GLOBAL HOVER FIX */
+    .card:hover,
+    .stat-item:hover,
+    .alert-card:hover,
+    .vision-card:hover,
+    .mission-card:hover,
+    .gpa-card:hover,
+    .stat-card:hover,
+    .contact-card:hover,
+    .meal-card:hover,
+    .location-item:hover,
+    .opportunity-card:hover {
+      transform: translateY(-5px) !important;
+      z-index: 1 !important;
+    }
   </style>
 </head>
 
 <body>
-  
+
   <!-- Premium Login Page -->
   <!-- Premium Login Page - Instagram Style -->
   <div class="login-page" id="loginPage">
@@ -5374,6 +5421,105 @@
       <button class="btn btn-outline" style="width: 100%; margin-top: 20px;" onclick="addMessNotice()">
         <i class="fas fa-bullhorn"></i> Add Notice
       </button>
+    </div>
+  </div>
+
+  <!-- Report Attendance Modal -->
+  <div class="modal" id="reportAttendanceModal">
+    <div class="modal-content">
+      <div class="modal-close" onclick="closeModal('reportAttendanceModal')">
+        <i class="fas fa-times"></i>
+      </div>
+      <h2 class="modal-title">Report Attendance Issue</h2>
+      <div class="modal-body">
+        <div class="form-group">
+          <label for="reportAttendanceDate">Attendance Date</label>
+          <input type="date" id="reportAttendanceDate" class="form-control" value="2026-05-15">
+        </div>
+
+        <div class="form-group">
+          <label for="reportSubject">Subject</label>
+          <select id="reportSubject" class="form-control">
+            <option value="">Select Subject</option>
+            <option value="cs301">Data Structures (CS-301)</option>
+            <option value="cs302">Algorithms Lab (CS-302)</option>
+            <option value="cs303">Computer Networks (CS-303)</option>
+            <option value="math">Mathematics</option>
+            <option value="physics">Physics</option>
+            <option value="english">English Communication</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="reportIssueType">Issue Type</label>
+          <select id="reportIssueType" class="form-control">
+            <option value="">Select Issue Type</option>
+            <option value="mark-missing">Marked absent but was present</option>
+            <option value="wrong-subject">Wrong subject marked</option>
+            <option value="wrong-time">Incorrect time recorded</option>
+            <option value="technical">Technical error</option>
+            <option value="other">Other issue</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="reportDetails">Detailed Explanation</label>
+          <textarea id="reportDetails" class="form-control" rows="4"
+            placeholder="Please provide details about the attendance issue..."></textarea>
+        </div>
+
+        <div class="form-group">
+          <label for="reportEvidence">Supporting Evidence (Optional)</label>
+          <div style="margin-top: 10px;">
+            <div style="display: flex; gap: 15px; margin-bottom: 15px; flex-wrap: wrap;">
+              <label style="display: flex; align-items: center; gap: 10px; cursor: pointer;">
+                <input type="checkbox" id="evidence-classwork">
+                <span>Classwork/Notes</span>
+              </label>
+              <label style="display: flex; align-items: center; gap: 10px; cursor: pointer;">
+                <input type="checkbox" id="evidence-peers">
+                <span>Peer Verification</span>
+              </label>
+              <label style="display: flex; align-items: center; gap: 10px; cursor: pointer;">
+                <input type="checkbox" id="evidence-other">
+                <span>Other Evidence</span>
+              </label>
+            </div>
+            <input type="file" id="fileUpload" class="form-control" style="display: none;">
+            <button class="btn btn-outline" onclick="document.getElementById('fileUpload').click()"
+              style="width: 100%; padding: 12px;">
+              <i class="fas fa-upload"></i> Upload Supporting Document
+            </button>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label>Preferred Resolution</label>
+          <div style="margin-top: 10px;">
+            <label style="display: flex; align-items: center; gap: 12px; margin-bottom: 12px; cursor: pointer;">
+              <input type="radio" name="resolution" value="update" checked>
+              <span>Update attendance record</span>
+            </label>
+            <label style="display: flex; align-items: center; gap: 12px; margin-bottom: 12px; cursor: pointer;">
+              <input type="radio" name="resolution" value="meeting">
+              <span>Schedule meeting with faculty</span>
+            </label>
+            <label style="display: flex; align-items: center; gap: 12px; cursor: pointer;">
+              <input type="radio" name="resolution" value="review">
+              <span>Review by department</span>
+            </label>
+          </div>
+        </div>
+      </div>
+
+      <div style="display: flex; gap: 15px;">
+        <button class="btn btn-secondary" onclick="closeModal('reportAttendanceModal')" style="flex: 1;">
+          Cancel
+        </button>
+        <button class="btn btn-primary" onclick="submitAttendanceReport()" style="flex: 2;">
+          <i class="fas fa-paper-plane"></i> Submit Report
+        </button>
+      </div>
     </div>
   </div>
 
@@ -7009,7 +7155,7 @@
     let lastWeatherUpdate = null;
     let weatherCacheKey = 'neristWeatherCache';
     let weatherRefreshInterval = 300000; // 5 minutes
-    const NERIST_COORDS = { lat: 27.0675, lng: 88.4965 }; // NERIST coordinates
+    const NERIST_COORDS = { lat: 27.1265, lng: 93.7145 }; // NERIST coordinates
 
     // ===== MAP VARIABLES =====
     let neristMap = null;
@@ -7172,7 +7318,7 @@
       }
 
       // Initialize locations
-      // Change from Sikkim coordinates [27.0685, 88.4962] to NERIST (Nirjuli) coordinates
+      // Change from Sikkim coordinates [27.1265,93.7145] to NERIST (Nirjuli) coordinates
       locations = [
         { name: 'Computer Science Department', desc: 'CSE Building, 2nd Floor | 0.4 km away', type: 'academic', coords: [27.1050, 93.7270] }, // NERIST coordinates
         { name: 'Central Library', desc: 'Main Building, Ground Floor | 0.7 km away', type: 'facility', coords: [27.1042, 93.7281] },
@@ -7929,10 +8075,9 @@
   <td><span class="status-badge status-${record.status}">${record.status.charAt(0).toUpperCase() + record.status.slice(1)}</span></td>
   <td>${record.time}</td>
   <td>
-    ${currentUserRole === 'student' ? `
-      <button class="btn btn-outline" style="padding: 6px 12px; font-size: 0.85rem;" onclick="reportAttendanceIssue(${index})">
-        <i class="fas fa-flag"></i> Report
-      </button>
+    ${currentUserRole === 'student' ? `<button class="btn btn-outline" style="padding: 6px 12px; font-size: 0.85rem;" onclick="openReportAttendanceModal(${index})">
+  <i class="fas fa-flag"></i> Report
+</button>
     ` : `
       <div style="display: flex; gap: 6px; flex-wrap: nowrap; align-items: center;">
         <button class="btn btn-outline" style="padding: 6px 12px; font-size: 0.85rem; min-width: 60px; display: flex; align-items: center; justify-content: center;" onclick="editAttendance(${index})" title="Edit Attendance">
@@ -10233,6 +10378,201 @@ ${application.status === 'pending' ? `
       showNotification('Opening attendance issue report form...', 'info');
     }
 
+    // ===== ATTENDANCE REPORT SYSTEM =====
+    let currentAttendanceIndex = null;
+
+    function openReportAttendanceModal(index) {
+      if (currentUserRole !== 'student') {
+        showNotification('Only students can report attendance issues', 'warning');
+        return;
+      }
+
+      currentAttendanceIndex = index;
+      const attendanceRecord = attendanceData[index];
+
+      // Pre-fill form with attendance data
+      document.getElementById('reportAttendanceDate').value = attendanceRecord.date;
+
+      // Set subject based on attendance record
+      const subjectSelect = document.getElementById('reportSubject');
+      const subjectCode = attendanceRecord.subject.toLowerCase();
+      if (subjectCode.includes('data structures') || subjectCode.includes('cs-301')) {
+        subjectSelect.value = 'cs301';
+      } else if (subjectCode.includes('algorithms') || subjectCode.includes('cs-302')) {
+        subjectSelect.value = 'cs302';
+      } else if (subjectCode.includes('networks') || subjectCode.includes('cs-303')) {
+        subjectSelect.value = 'cs303';
+      } else {
+        subjectSelect.value = '';
+      }
+
+      // Clear other fields
+      document.getElementById('reportIssueType').value = '';
+      document.getElementById('reportDetails').value = '';
+      document.querySelectorAll('input[type="checkbox"]').forEach(cb => cb.checked = false);
+      document.querySelector('input[name="resolution"][value="update"]').checked = true;
+
+      // Open modal
+      openModal('reportAttendanceModal');
+    }
+
+    function submitAttendanceReport() {
+      const date = document.getElementById('reportAttendanceDate').value;
+      const subject = document.getElementById('reportSubject').value;
+      const issueType = document.getElementById('reportIssueType').value;
+      const details = document.getElementById('reportDetails').value.trim();
+      const resolution = document.querySelector('input[name="resolution"]:checked').value;
+
+      // Validation
+      if (!date || !subject || !issueType || !details) {
+        showNotification('Please fill all required fields', 'warning');
+        return;
+      }
+
+      if (details.length < 20) {
+        showNotification('Please provide detailed explanation (at least 20 characters)', 'warning');
+        return;
+      }
+
+      // Get evidence
+      const evidence = [];
+      if (document.getElementById('evidence-classwork').checked) evidence.push('Classwork');
+      if (document.getElementById('evidence-peers').checked) evidence.push('Peer Verification');
+      if (document.getElementById('evidence-other').checked) evidence.push('Other');
+
+      // Create report object
+      const report = {
+        id: 'REP-' + Date.now(),
+        date: date,
+        subject: document.getElementById('reportSubject').options[document.getElementById('reportSubject').selectedIndex].text,
+        issueType: issueType,
+        details: details,
+        evidence: evidence,
+        resolution: resolution,
+        status: 'pending',
+        submittedBy: currentUser?.name || 'Student',
+        submittedOn: new Date().toISOString().split('T')[0],
+        attendanceIndex: currentAttendanceIndex
+      };
+
+      // Save to localStorage (simulating database)
+      let reports = JSON.parse(localStorage.getItem('attendanceReports') || '[]');
+      reports.push(report);
+      localStorage.setItem('attendanceReports', JSON.stringify(reports));
+
+      // Show confirmation
+      showNotification('Attendance report submitted successfully!', 'success');
+
+      // Close modal
+      closeModal('reportAttendanceModal');
+
+      // Log to console (for debugging)
+      console.log('Attendance Report Submitted:', report);
+
+      // Send email notification (simulated)
+      sendReportNotification(report);
+    }
+
+    function sendReportNotification(report) {
+      // In a real application, this would send an email to faculty/admin
+      console.log('Report notification sent for:', report.id);
+
+      // Show success message
+      setTimeout(() => {
+        showNotification('Report has been sent to the faculty for review', 'info');
+      }, 500);
+    }
+
+    function viewSubmittedReports() {
+      const reports = JSON.parse(localStorage.getItem('attendanceReports') || '[]');
+
+      if (reports.length === 0) {
+        showNotification('No reports submitted yet', 'info');
+        return;
+      }
+
+      // Create modal to show reports
+      let reportsModal = document.getElementById('viewReportsModal');
+
+      if (!reportsModal) {
+        reportsModal = document.createElement('div');
+        reportsModal.className = 'modal';
+        reportsModal.id = 'viewReportsModal';
+        reportsModal.style.cssText = 'position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.9); z-index: 2000; align-items: center; justify-content: center; padding: 20px;';
+
+        reportsModal.innerHTML = `
+      <div class="modal-content" style="max-width: 800px; max-height: 80vh; overflow-y: auto;">
+        <div class="modal-close" onclick="closeModal('viewReportsModal')">
+          <i class="fas fa-times"></i>
+        </div>
+        <h2 class="modal-title">Submitted Reports</h2>
+        <div class="modal-body" id="reportsList">
+          <!-- Reports will be populated here -->
+        </div>
+      </div>
+    `;
+
+        document.body.appendChild(reportsModal);
+      }
+
+      // Populate reports
+      const reportsList = document.getElementById('reportsList');
+      let html = '';
+
+      if (reports.length === 0) {
+        html = '<p style="text-align: center; color: var(--gray); padding: 40px;">No reports submitted yet.</p>';
+      } else {
+        html = '<div style="display: grid; gap: 20px;">';
+
+        reports.forEach((report, index) => {
+          const statusColor = report.status === 'pending' ? 'var(--warning)' :
+            report.status === 'resolved' ? 'var(--success)' : 'var(--danger)';
+
+          html += `
+        <div class="card" style="margin-bottom: 0;">
+          <div class="card-header" style="display: flex; justify-content: space-between; align-items: center;">
+            <h3 class="card-title">${report.subject}</h3>
+            <span style="background: ${statusColor + '20'}; color: ${statusColor}; padding: 6px 12px; border-radius: 20px; font-size: 0.85rem; font-weight: 600;">
+              ${report.status.charAt(0).toUpperCase() + report.status.slice(1)}
+            </span>
+          </div>
+          <div class="card-body">
+            <p><strong>Date:</strong> ${report.date}</p>
+            <p><strong>Issue:</strong> ${report.issueType}</p>
+            <p><strong>Details:</strong> ${report.details}</p>
+            <p><strong>Evidence:</strong> ${report.evidence.join(', ') || 'None'}</p>
+            <p><strong>Submitted:</strong> ${report.submittedOn} by ${report.submittedBy}</p>
+          </div>
+        </div>
+      `;
+        });
+
+        html += '</div>';
+      }
+
+      reportsList.innerHTML = html;
+      openModal('viewReportsModal');
+    }
+
+    // Add "View Reports" button to attendance section
+    function addViewReportsButton() {
+      if (currentUserRole !== 'student') return;
+
+      const attendanceContainer = document.querySelector('#attendance .attendance-container');
+      const existingButton = document.querySelector('#viewReportsBtn');
+
+      if (!existingButton && attendanceContainer) {
+        const viewReportsBtn = document.createElement('button');
+        viewReportsBtn.className = 'btn btn-outline';
+        viewReportsBtn.id = 'viewReportsBtn';
+        viewReportsBtn.innerHTML = '<i class="fas fa-list-check"></i> View Submitted Reports';
+        viewReportsBtn.onclick = viewSubmittedReports;
+        viewReportsBtn.style.marginTop = '20px';
+
+        attendanceContainer.appendChild(viewReportsBtn);
+      }
+    }
+
     function editAttendance(index) {
       showNotification('Editing attendance record...', 'info');
     }
@@ -11873,7 +12213,7 @@ ${application.status === 'pending' ? `
       }
 
       // Initialize map with NERIST coordinates
-      neristMap = L.map('neristMap').setView([27.0675, 88.4965], 17); // NERIST coordinates
+      neristMap = L.map('neristMap').setView([27.1265, 93.7145], 17); // NERIST coordinates
 
       // Add OpenStreetMap tile layer
       // Define base layers with proper configuration
@@ -12077,11 +12417,12 @@ ${application.status === 'pending' ? `
 
       // Add NERIST boundary polygon
       const neristBoundary = [
-        [27.0660, 88.4940],
-        [27.0695, 88.4945],
-        [27.0690, 88.4980],
-        [27.0655, 88.4975]
+        [27.1248, 93.7129], // South-West
+        [27.1282, 93.7129], // North-West
+        [27.1282, 93.7163], // North-East
+        [27.1248, 93.7163]  // South-East
       ];
+
 
       L.polygon(neristBoundary, {
         color: 'var(--primary)',
@@ -12666,7 +13007,6 @@ ${application.status === 'pending' ? `
       </div>
     </div>
   </div>
-
   <!-- Include the backend system -->
   <script src="nerist_backend.js"></script>
 
@@ -12752,6 +13092,7 @@ ${application.status === 'pending' ? `
 
     // ... rest of your existing frontend functions
   </script>
+
 </body>
 
 </html>
