@@ -6019,7 +6019,7 @@
                   </div>
                   <div style="display: flex; align-items: center; gap: 12px;">
                     <i class="fas fa-check-circle" style="color: var(--success);"></i>
-                    <span>Career Portal</span>
+                    <span>Results and Career</span>
                   </div>
                   <div style="display: flex; align-items: center; gap: 12px;">
                     <i class="fas fa-check-circle" style="color: var(--success);"></i>
@@ -7130,6 +7130,9 @@
       </p>
     </div>
   </footer>
+
+ <!-- Include the backend system -->
+  <script src="nerist_backend.js"></script>
 
   <script>
     // ===== GLOBAL VARIABLES =====
@@ -12978,6 +12981,75 @@ ${application.status === 'pending' ? `
       }
     });
 
+// ===== BACKEND ENHANCEMENTS (NON-BREAKING) =====
+
+// 1. Add backend session check on startup
+document.addEventListener('DOMContentLoaded', async function() {
+  // After your existing initialization, add this check:
+  setTimeout(async () => {
+    if (window.neristBackend) {
+      try {
+        const user = await neristBackend.getCurrentUser();
+        if (user && !currentUser) {
+          console.log('Found backend session:', user.name);
+          // Optionally use backend user instead of localStorage
+          currentUser = user;
+          currentUserRole = user.role;
+          updateUserDisplay();
+        }
+      } catch (e) {
+        // Silent fail - use frontend mode
+      }
+    }
+  }, 1000);
+});
+
+// 2. Enhanced login (try backend first, fallback to frontend)
+window.enhancedLogin = async function() {
+  const username = document.getElementById('loginUserId')?.value;
+  const password = document.getElementById('loginUserPassword')?.value;
+  
+  if (!username || !password) return false;
+  
+  // Try backend first
+  if (window.neristBackend) {
+    try {
+      const backendUser = await neristBackend.login(username, password);
+      if (backendUser) {
+        console.log('Backend login successful!');
+        currentUser = backendUser;
+        currentUserRole = backendUser.role;
+        updateUserDisplay();
+        updateRoleBasedUI();
+        document.body.classList.add('logged-in');
+        hideLoginPage();
+        showNotification(`Welcome back, ${backendUser.name}!`, 'success');
+        return true;
+      }
+    } catch (error) {
+      console.log('Backend login failed, using frontend:', error);
+    }
+  }
+  
+  // Fallback to your existing frontend login
+  performLoginFromPage();
+  return true;
+};
+
+// 3. Optional: Save attendance data to backend when admin marks it
+window.saveAttendanceToBackend = async function(attendanceRecord) {
+  if (!window.neristBackend || !currentUser) return;
+  
+  try {
+    // Save to backend for persistence
+    await neristBackend.markAttendance(attendanceRecord);
+    console.log('Attendance saved to backend');
+  } catch (error) {
+    console.log('Could not save to backend:', error);
+  }
+};
+
+
   </script>
 
   <!-- AI Search Button -->
@@ -13007,8 +13079,7 @@ ${application.status === 'pending' ? `
       </div>
     </div>
   </div>
-  <!-- Include the backend system -->
-  <script src="nerist_backend.js"></script>
+ 
 
   <!-- Your frontend JavaScript that uses the backend -->
   <script>
